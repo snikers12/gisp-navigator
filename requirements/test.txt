@@ -1,0 +1,9 @@
+coverage
+flake8>=3.5.0
+freezegun
+model_mommy==1.5.1
+pytest-asyncio
+pytest-django
+pytest>=3.3.2
+requests-mock==1.5.2
+vcrpy
