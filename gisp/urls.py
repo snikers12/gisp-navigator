@@ -20,6 +20,7 @@ from django.contrib import admin
 from django.urls import path
 
 from accounts import views as account_views
+from organizations import views as organizations_views
 from pictures import views as pictures_views
 from regions import views as regions_views
 from uploads import views as uploads_views
@@ -36,6 +37,7 @@ router.register('picture', pictures_views.PictureUploadViewSet)
 router.register('regions/federal_district', regions_views.FederalDistrictViewSet)
 router.register('regions/federal_subject', regions_views.FederalSubjectViewSet)
 router.register('users', account_views.UserViewSet)
+router.register('measures', organizations_views.SupportMeasureViewSet)
 
 api_urls = router.urls
 
@@ -58,3 +60,5 @@ if settings.DEBUG:  # pragma: no cover
         # URLs specific only to django-debug-toolbar:
         path('__debug__/', include(debug_toolbar.urls)),  # noqa: DJ05
     ] + urlpatterns
+
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
